@@ -11,14 +11,22 @@ interface iPromptState {
     },
 }
 
-const today = new Date()
-today.setHours(1)
-today.setMinutes(0)
-today.setSeconds(0)
-today.setMilliseconds(0)
+const normaliseDate = (date: Date | string) => {
+    const newDate = new Date(date)
+    newDate.setHours(1)
+    newDate.setMinutes(0)
+    newDate.setSeconds(0)
+    newDate.setMilliseconds(0)
+    return newDate
+}
 
-const createPrompt = (): iPrompt => ({
-    date: today.toISOString(),
+const today = normaliseDate(new Date())
+const plus3Days = normaliseDate(new Date(Date.now() + 86400000 * 3))
+const plus1Month = normaliseDate(new Date(Date.now() + 86400000 * 30))
+const plus1Year = normaliseDate(new Date(Date.now() + 86400000 * 200))
+
+const createPrompt = (date: Date): iPrompt => ({
+    date: date.toISOString(),
     title: 'Some test prompt',
     defaultDeferQuantity: 1,
     defaultDeferPeriod: 'month',
@@ -26,7 +34,7 @@ const createPrompt = (): iPrompt => ({
     description: null,
     checklist: null,
     links: [],
-    createdOn: today.toISOString(),
+    createdOn: date.toISOString(),
     updatedOn: null,
     deletedOn: null,
     deleted: false,
@@ -35,15 +43,33 @@ const createPrompt = (): iPrompt => ({
     criticality: 'default',
 })
 
-export const promptSliceInitialState: iPromptState = {
-    all: [createPrompt()],
-    ordered: {
-        [String(today.getFullYear())]: {
-            [String(today.getMonth())]: [
-                createPrompt()
-            ],
-        },
+const testValues = [
+    createPrompt(today),
+    createPrompt(plus3Days),
+    createPrompt(plus1Month),
+    createPrompt(plus1Year),
+]
+
+const testOrdered = testValues.reduce(
+    (acc: iPromptState['ordered'], prompt: iPrompt) => {
+        const date = new Date(prompt.date)
+        const year = date.getFullYear()
+        const month = date.getMonth()
+        if (!(year in acc)) {
+            acc[date.getFullYear()] = {}
+        }
+        if (!(month in acc[year])) {
+            acc[year][month] = []
+        }
+        acc[year][month].push(prompt)
+        return acc
     },
+    {}
+)
+
+export const promptSliceInitialState: iPromptState = {
+    all: testValues,
+    ordered: testOrdered,
 }
 
 const promptSlice = createSlice({
