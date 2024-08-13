@@ -27,6 +27,7 @@ const Prompt: FC<iProps> = ({ prompt }) => {
                     padding: '16px 24px',
                     justifyContent: 'flex-start',
                     width: '40vw',
+                    mb: '16px',
                 })}
             >
                 <Typography variant='h4'>{prompt.title}</Typography>
