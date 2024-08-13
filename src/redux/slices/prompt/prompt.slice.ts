@@ -17,24 +17,30 @@ today.setMinutes(0)
 today.setSeconds(0)
 today.setMilliseconds(0)
 
+const createPrompt = (): iPrompt => ({
+    date: today.toISOString(),
+    title: 'Some test prompt',
+    defaultDeferQuantity: 1,
+    defaultDeferPeriod: 'month',
+    id: 'djslghjkdsgbjhbndg',
+    description: null,
+    checklist: null,
+    links: [],
+    createdOn: today.toISOString(),
+    updatedOn: null,
+    deletedOn: null,
+    deleted: false,
+    status: 'open',
+    deferredCount: 0,
+    criticality: 'default',
+})
+
 export const promptSliceInitialState: iPromptState = {
-    all: [
-        {
-            date: today.toISOString(),
-            title: 'Some test prompt',
-            defaultDeferQuantity: 1,
-            defaultDeferPeriod: 'month',
-        },
-    ],
+    all: [createPrompt()],
     ordered: {
         [String(today.getFullYear())]: {
             [String(today.getMonth())]: [
-                {
-                    date: today.toISOString(),
-                    title: 'Some test prompt',
-                    defaultDeferQuantity: 1,
-                    defaultDeferPeriod: 'month',
-                },
+                createPrompt()
             ],
         },
     },
