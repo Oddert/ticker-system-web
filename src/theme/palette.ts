@@ -3,6 +3,10 @@ import { Palette } from '@mui/material/styles'
 const palette: Partial<Palette> = {
     mode: 'dark',
     primary: {
+        // main: '#8638d6',
+        // light: '#bbb0c5',
+        // dark: '#591e94',
+        // contrastText: '#2f2f2f',
         main: '#ba85ec',
         light: '#bbb0c5',
         dark: '#8638d6',
