@@ -10,6 +10,8 @@ import Home from '../pages/Home'
 
 export const ROUTES = Object.freeze({
     HOME: '/',
+    LOOK_AHEAD: '/look-ahead',
+    ALL_PROMPTS: '/all-prompts',
 })
 
 // export const GO = Object.freeze({
@@ -25,23 +27,39 @@ const router = createBrowserRouter([
             </Layout>
         ),
     },
+    {
+        path: ROUTES.LOOK_AHEAD,
+        element: (
+            <Layout>
+                <p></p>
+            </Layout>
+        ),
+    },
+    {
+        path: ROUTES.ALL_PROMPTS,
+        element: (
+            <Layout>
+                <p></p>
+            </Layout>
+        ),
+    },
 ])
 
 export const navigation = [
     {
-        label: 'Transactions',
+        label: 'Home',
         Icon: TransactionsIcon,
         location: ROUTES.HOME,
     },
     {
-        label: 'Categories',
+        label: 'Look Ahead',
         Icon: CategoryIcon,
-        location: ROUTES.HOME,
+        location: ROUTES.LOOK_AHEAD,
     },
     {
         label: 'All Data',
         Icon: AllDataIcon,
-        location: ROUTES.HOME,
+        location: ROUTES.ALL_PROMPTS,
     },
 ]
 

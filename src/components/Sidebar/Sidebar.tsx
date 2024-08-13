@@ -46,15 +46,28 @@ const Sidebar: React.FC<Props> = ({ drawerWidth, handleDrawerClose, open }) => {
             </DrawerHeader>
             <List>
                 {navigation.map(({ label, Icon, location }, index) => (
-                    <ListItem key={index} disablePadding sx={{ display: 'block' }}>
+                    <ListItem
+                        key={index}
+                        disablePadding
+                        title={label}
+                        sx={{ display: 'block' }}
+                    >
                         <Link to={location}  >
                             <ListItemButton
+                                onClick={handleDrawerClose}
                                 sx={{
                                     minHeight: 48,
                                     justifyContent: open ? 'initial' : 'center',
                                     px: 2.5,
+                                    borderRadius: '8px',
+                                    ...(
+                                        location === window.location.pathname
+                                            ? {
+                                                background: theme.palette.secondary.dark,
+                                            }
+                                            : {}
+                                    )
                                 }}
-                                onClick={handleDrawerClose}
                             >
                                 <ListItemIcon
                                     sx={{
