@@ -58,7 +58,9 @@ const Home = () => {
                     gridColumn: '1',
                 }}
             >
-                {todayPrompts.map((prompt, idx) => <Prompt key={idx} prompt={prompt} />)}
+                {todayPrompts.map((prompt, idx) => (
+                    <Prompt key={idx} prompt={prompt} />
+                ))}
             </Box>
             <img alt='' src={PlantImage} />
         </Container>

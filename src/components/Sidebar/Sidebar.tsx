@@ -60,6 +60,7 @@ const Sidebar: React.FC<Props> = ({ drawerWidth, handleDrawerClose, open }) => {
                                     justifyContent: open ? 'initial' : 'center',
                                     px: 2.5,
                                     borderRadius: '8px',
+                                    margin: '8px',
                                     ...(
                                         location === window.location.pathname
                                             ? {
