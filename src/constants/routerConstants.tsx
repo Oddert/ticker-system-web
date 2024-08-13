@@ -6,6 +6,7 @@ import TransactionsIcon from '@mui/icons-material/ReceiptLong'
 
 import Layout from '../components/Layout'
 
+import AllPrompts from '../pages/AllPrompts'
 import Home from '../pages/Home'
 
 export const ROUTES = Object.freeze({
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
         path: ROUTES.ALL_PROMPTS,
         element: (
             <Layout>
-                <p></p>
+                <AllPrompts />
             </Layout>
         ),
     },
