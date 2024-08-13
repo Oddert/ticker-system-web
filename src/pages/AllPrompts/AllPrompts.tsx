@@ -1,13 +1,14 @@
 import { FC, Fragment } from 'react';
 
-import { Box, Container, darken, lighten, Typography } from '@mui/material';
+import { Box, Container, darken, lighten, Typography, useTheme } from '@mui/material';
+
+import { monthLabelsLong } from '../../constants/appConstants';
 
 import { useAppSelector } from '../../hooks/ReduxHookWrappers';
 
 import { getPromptsOrdered } from '../../redux/slices/prompt/prompt.selector';
 
 import Prompt from '../../components/Prompt/Prompt';
-import { monthLabelsLong } from '../../constants/appConstants';
 
 const monthColours = [
     '#d32f2f',
@@ -26,6 +27,7 @@ const monthColours = [
 
 const AllPrompts: FC = () => {
     const prompts = useAppSelector(getPromptsOrdered)
+    const theme = useTheme()
     return (
         <Container
             sx={{
@@ -45,6 +47,10 @@ const AllPrompts: FC = () => {
                                     display: 'flex',
                                     padding: 2,
                                     gridColumn: 2,
+                                    position: 'sticky',
+                                    top: '64px',
+                                    zIndex: 1,
+                                    background: theme.palette.secondary.dark,
                                 }}
                             >
                                 <Typography variant='h2'>{yearKey}</Typography>
@@ -76,6 +82,7 @@ const AllPrompts: FC = () => {
                                                 sx={(theme) => ({
                                                     background: theme.palette.secondary.dark,
                                                     gridColumn: 1,
+                                                    padding: 2,
                                                     width: '64px',
                                                     position: 'sticky',
                                                     top: '64px',

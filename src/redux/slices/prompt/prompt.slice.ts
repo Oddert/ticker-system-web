@@ -25,9 +25,9 @@ const plus3Days = normaliseDate(new Date(Date.now() + 86400000 * 3))
 const plus1Month = normaliseDate(new Date(Date.now() + 86400000 * 30))
 const plus1Year = normaliseDate(new Date(Date.now() + 86400000 * 200))
 
-const createPrompt = (date: Date): iPrompt => ({
+const createPrompt = (date: Date, title: string = 'Some test prompt'): iPrompt => ({
+    title,
     date: date.toISOString(),
-    title: 'Some test prompt',
     defaultDeferQuantity: 1,
     defaultDeferPeriod: 'month',
     id: 'djslghjkdsgbjhbndg',
@@ -44,10 +44,10 @@ const createPrompt = (date: Date): iPrompt => ({
 })
 
 const testValues = [
-    createPrompt(today),
-    createPrompt(plus3Days),
-    createPrompt(plus1Month),
-    createPrompt(plus1Year),
+    createPrompt(today, 'Create handover notes'),
+    createPrompt(plus3Days, 'Notes for check-in meeting'),
+    createPrompt(plus1Month, 'Consider next planting season'),
+    createPrompt(plus1Year, 'Perform GSD alignment session'),
 ]
 
 const testOrdered = testValues.reduce(
