@@ -11,7 +11,7 @@ interface iProps {
 const Layout: FC<iProps> = ({ children }) => (
     <Box>
         <Header />
-        <Box sx={{ pt: '64px' }}>
+        <Box sx={{ pt: '64px', pl: '80px' }}>
             {children}
         </Box>
     </Box>

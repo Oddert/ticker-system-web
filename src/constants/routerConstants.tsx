@@ -8,6 +8,7 @@ import Layout from '../components/Layout'
 
 import AllPrompts from '../pages/AllPrompts'
 import Home from '../pages/Home'
+import LookAhead from '../pages/LookAhead'
 
 export const ROUTES = Object.freeze({
     HOME: '/',
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
         path: ROUTES.LOOK_AHEAD,
         element: (
             <Layout>
-                <p></p>
+                <LookAhead />
             </Layout>
         ),
     },

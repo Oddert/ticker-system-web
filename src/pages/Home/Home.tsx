@@ -20,7 +20,8 @@ const Home = () => {
         const today = new Date()
         const year = String(today.getFullYear())
         const month = String(today.getMonth())
-        return orderedPrompts[year][month]
+        const day = String(today.getDate())
+        return orderedPrompts[year][month][day]
     }, [orderedPrompts])
 
     return (

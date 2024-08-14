@@ -6,7 +6,9 @@ interface iPromptState {
     all: iPrompt[],
     ordered: {
         [year: string]: {
-            [month: string]: iPrompt[],
+            [month: string]: {
+                [day: string]: iPrompt[]
+            },
         },
     },
 }
@@ -55,13 +57,17 @@ const testOrdered = testValues.reduce(
         const date = new Date(prompt.date)
         const year = date.getFullYear()
         const month = date.getMonth()
+        const day = date.getDate()
         if (!(year in acc)) {
             acc[date.getFullYear()] = {}
         }
         if (!(month in acc[year])) {
-            acc[year][month] = []
+            acc[year][month] = {}
         }
-        acc[year][month].push(prompt)
+        if (!(day in acc[year][month])) {
+            acc[year][month][day] = []
+        }
+        acc[year][month][day].push(prompt)
         return acc
     },
     {}

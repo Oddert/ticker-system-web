@@ -91,9 +91,10 @@ const AllPrompts: FC = () => {
                                             >
                                                 {monthKey}
                                             </Typography>
-                                            {monthValue.map(
-                                                (prompt, promptIdx) => (
+                                            {Object.values(monthValue).map(
+                                                (day) => day.map((prompt, promptIdx) => (
                                                     <Box
+                                                        key={promptIdx}
                                                         sx={{
                                                             gridColumn: 2,
                                                             display: 'flex',
@@ -105,7 +106,7 @@ const AllPrompts: FC = () => {
                                                             prompt={prompt}
                                                         />
                                                     </Box>
-                                                )
+                                                ))
                                             )}
                                         </Fragment>
                                     )
