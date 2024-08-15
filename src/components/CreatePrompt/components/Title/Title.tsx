@@ -11,7 +11,7 @@ interface iProps {
 }
 
 const Title: FC<iProps> = ({ setState, title }) => {
-    const handleChange = () => (event: ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState((_state) => ({
             ..._state,
             title: event.target.value,
