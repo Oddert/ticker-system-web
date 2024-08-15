@@ -58,7 +58,7 @@ const CreatePrompt: FC<iProps> = ({
     const handleClose = () => {
         if (
             state.title !== '' ||
-            initialDate.diff(state.date) < -86400000 ||
+            initialDate.diff(state.date) ||
             state.deferQuantity !== '2' ||
             state.deferPeriod !== 'days'
         ) {
@@ -66,12 +66,14 @@ const CreatePrompt: FC<iProps> = ({
         } else {
             resetState()
             setOpen(false)
+            setConfirm(false)
         }
     }
     
     const handleClickConfirm = () => {
         resetState()
         setOpen(false)
+        setConfirm(false)
     }
 
     const handleClickOpen = () => setOpen(true)
@@ -113,7 +115,7 @@ const CreatePrompt: FC<iProps> = ({
                 </Box>
             </Dialog>
             <ConfirmationModal
-                cancelText='Back'
+                cancelText='Go back'
                 confirmText='Discard changes'
                 onClickCancel={handleClickCancel}
                 onClickConfirm={handleClickConfirm}
