@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Box, Button, Modal, Typography } from '@mui/material';
+import { Box, Button, Dialog, Typography } from '@mui/material';
 
 interface iProps {
     cancelText?: string
@@ -13,21 +13,21 @@ interface iProps {
 
 const ConfirmationModal: FC<iProps> = ({
     cancelText='Cancel',
-    confirmText='Save',
+    confirmText='Confirm',
     onClickCancel,
     onClickConfirm,
     open,
     title='Confirm?'
 }) => {
     return (
-        <Modal
+        <Dialog
             open={open}
         >
-            <Box>
+            <Box sx={{ p: '32px 64px', minWidth: '40vw' }}>
                 <Typography variant='h3'>
                     {title}
                 </Typography>
-                <Box>
+                <Box sx={{ display: 'flex', justifyContent: 'flex-end', gridGap: '16px', mt: '32px' }}>
                     <Button onClick={onClickCancel} variant='outlined'>
                         {cancelText}
                     </Button>
@@ -36,7 +36,7 @@ const ConfirmationModal: FC<iProps> = ({
                     </Button>
                 </Box>
             </Box>
-        </Modal>
+        </Dialog>
     )
 }
 
