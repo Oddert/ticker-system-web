@@ -10,6 +10,7 @@ import { getPromptsOrdered } from '../../redux/slices/prompt/prompt.selector'
 
 import { createDateStr } from '../../utils/commonUtils'
 import Prompt from '../../components/Prompt/Prompt'
+import CreatePrompt from '../../components/CreatePrompt';
 
 const dateStr = createDateStr(new Date())
 
@@ -62,6 +63,7 @@ const Home = () => {
                 {todayPrompts.map((prompt, idx) => (
                     <Prompt key={idx} prompt={prompt} />
                 ))}
+                <CreatePrompt buttonText='New prompt' />
             </Box>
             <img alt='' src={PlantImage} />
         </Container>
