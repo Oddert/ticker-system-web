@@ -1,0 +1,86 @@
+import { ChangeEvent, Dispatch, FC, SetStateAction } from 'react';
+
+import { iState } from '../../CreatePrompt';
+import {
+    Accordion,
+    AccordionDetails,
+    AccordionSummary,
+    Box,
+    FormControlLabel,
+    Input,
+    Radio,
+    RadioGroup,
+    SelectChangeEvent,
+    Typography,
+} from '@mui/material';
+import { ExpandMore as ExpandIcon } from '@mui/icons-material';
+
+interface iProps {
+    deferPeriod: string;
+    deferQuantity: string;
+    setState: Dispatch<SetStateAction<iState>>
+}
+
+const Deferral: FC<iProps> = ({ deferPeriod, deferQuantity, setState }) => {
+    const handleChangeQuantity = (event: ChangeEvent<HTMLInputElement>) => {
+        if (event.target?.value) {
+            setState((_state) => ({
+                ..._state,
+                deferQuantity: event.target.value
+            }))
+        }
+    }
+
+    const handleChangePeriod = (event: SelectChangeEvent<'days' | 'weeks' | 'months'>) => {
+        setState((_state) => ({
+            ..._state,
+            deferPeriod: event.target.value as iState['deferPeriod']
+        }))
+    }
+
+    return (
+        <Accordion defaultExpanded sx={{ background: 'transparent', boxShadow: 'none' }}>
+            <AccordionSummary expandIcon={<ExpandIcon />}>
+                Deferral
+            </AccordionSummary>
+            <AccordionDetails>
+                <Typography>
+                    How long should the prompt be postponed if dismissed?
+                </Typography>
+                <Typography variant='body2'>
+                    This is changeable at the point of deferral so you can ignore it if you want.
+                </Typography>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                    }}
+                >
+                    <Input
+                        onChange={handleChangeQuantity}
+                        type='number'
+                        sx={{
+                            width: '100px'
+                        }}
+                        value={deferQuantity}
+                    />
+                    <RadioGroup
+                        onChange={handleChangePeriod}
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                        }}
+                        value={deferPeriod}
+                    >
+                        <FormControlLabel value='days' control={<Radio />} label='Days' />
+                        <FormControlLabel value='weeks' control={<Radio />} label='Weeks' />
+                        <FormControlLabel value='months' control={<Radio />} label='Months' />
+                    </RadioGroup>
+                </Box>
+            </AccordionDetails>
+        </Accordion>
+    )
+}
+
+export default Deferral
