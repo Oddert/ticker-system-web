@@ -6,7 +6,7 @@ import {
     ExpandMore as ExpandIcon,
 } from '@mui/icons-material';
 
-import { iState } from '../../CreatePrompt';
+import { iState } from '../../EditPromptModal';
 import { Dayjs } from 'dayjs';
 
 interface iProps {

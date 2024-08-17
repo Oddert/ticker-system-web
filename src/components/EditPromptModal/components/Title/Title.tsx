@@ -3,7 +3,7 @@ import { ChangeEvent, Dispatch, FC, SetStateAction } from 'react'
 import { Box, Button, FormControlLabel, Input } from '@mui/material'
 import { Close as ClearIcon } from '@mui/icons-material';
 
-import { iState } from '../../CreatePrompt'
+import { iState } from '../../EditPromptModal'
 
 interface iProps {
     setState: Dispatch<SetStateAction<iState>>

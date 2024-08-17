@@ -1,6 +1,5 @@
 import { ChangeEvent, Dispatch, FC, SetStateAction } from 'react';
 
-import { iState } from '../../CreatePrompt';
 import {
     Accordion,
     AccordionDetails,
@@ -15,9 +14,13 @@ import {
 } from '@mui/material';
 import { ExpandMore as ExpandIcon } from '@mui/icons-material';
 
+import type { iPrompt } from '../../../../types/prompt';
+
+import { iState } from '../../EditPromptModal';
+
 interface iProps {
-    deferPeriod: string;
-    deferQuantity: string;
+    deferPeriod: iPrompt['defaultDeferPeriod'];
+    deferQuantity: number;
     setState: Dispatch<SetStateAction<iState>>
 }
 
@@ -26,7 +29,7 @@ const Deferral: FC<iProps> = ({ deferPeriod, deferQuantity, setState }) => {
         if (event.target?.value) {
             setState((_state) => ({
                 ..._state,
-                deferQuantity: event.target.value
+                deferQuantity: Number(event.target.value)
             }))
         }
     }
