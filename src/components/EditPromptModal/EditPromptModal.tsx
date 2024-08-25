@@ -20,7 +20,7 @@ export interface iState {
     title: string
     date: Dayjs
     deferQuantity: number
-    deferPeriod: iPrompt['defaultDeferPeriod']
+    deferPeriod: iPrompt['deferPeriod']
 }
 
 interface iProps {

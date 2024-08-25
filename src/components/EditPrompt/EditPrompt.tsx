@@ -44,8 +44,8 @@ const EditPrompt: FC<iProps> = ({
                 initialState={{
                     title: prompt.title,
                     date: dayjs(prompt.date),
-                    deferQuantity: prompt.defaultDeferQuantity,
-                    deferPeriod: prompt.defaultDeferPeriod,
+                    deferQuantity: prompt.deferQuantity,
+                    deferPeriod: prompt.deferPeriod,
                 }}
                 onClose={() => setOpen(false)}
                 onSave={handleSave}

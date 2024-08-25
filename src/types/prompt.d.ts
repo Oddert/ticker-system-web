@@ -1,19 +1,20 @@
 export interface iPrompt {
-    date: string;
-    title: string;
-    defaultDeferQuantity: number;
-    defaultDeferPeriod: 'day' | 'month' | 'year';
-    id: string;// uuid
-    description: string | null; // str(2000)
     checklist: string | null; // FK.checklist
-    links: string[]; // [] FK.links
     createdOn: string; // date
-    updatedOn: string | null; // date
-    deletedOn: string | null; // date
-    deleted: boolean; // boolean
-    status: 'open' | 'resolved' | 'archived' | 'deleted';
-    deferredCount: number; // number (default: 0)
     criticality: 'severe' | 'default' | 'reminder' | 'reference';
+    date: string;
+    deferPeriod: 'day' | 'month' | 'year';
+    deferQuantity: number;
+    deferredCount: number; // number (default: 0)
+    deleted: boolean; // boolean
+    deletedOn: string | null; // date
+    description: string | null; // str(2000)
+    links: string[]; // [] FK.links
+    promptId: string;// uuid
+    status: 'open' | 'resolved' | 'archived' | 'deleted';
+    title: string;
+    updatedOn: string | null; // date
+    userId: string,
 }
 
 // checklist (one to one prompt)

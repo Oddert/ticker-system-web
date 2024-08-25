@@ -19,7 +19,7 @@ import type { iPrompt } from '../../../../types/prompt';
 import { iState } from '../../EditPromptModal';
 
 interface iProps {
-    deferPeriod: iPrompt['defaultDeferPeriod'];
+    deferPeriod: iPrompt['deferPeriod'];
     deferQuantity: number;
     setState: Dispatch<SetStateAction<iState>>
 }

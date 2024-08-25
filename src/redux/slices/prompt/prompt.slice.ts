@@ -30,9 +30,9 @@ const plus1Year = normaliseDate(new Date(Date.now() + 86400000 * 200))
 const createPrompt = (date: Date, title: string = 'Some test prompt'): iPrompt => ({
     title,
     date: date.toISOString(),
-    defaultDeferQuantity: 1,
-    defaultDeferPeriod: 'month',
-    id: 'djslghjkdsgbjhbndg',
+    deferQuantity: 1,
+    deferPeriod: 'month',
+    promptId: 'djslghjkdsgbjhbndg',
     description: null,
     checklist: null,
     links: [],
@@ -43,6 +43,7 @@ const createPrompt = (date: Date, title: string = 'Some test prompt'): iPrompt =
     status: 'open',
     deferredCount: 0,
     criticality: 'default',
+    userId: 'nope',
 })
 
 const testValues = [
