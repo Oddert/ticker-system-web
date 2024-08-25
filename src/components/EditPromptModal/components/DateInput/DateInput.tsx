@@ -2,36 +2,37 @@ import { Dispatch, FC, SetStateAction } from 'react';
 
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
-import {
-    ExpandMore as ExpandIcon,
-} from '@mui/icons-material';
+import { ExpandMore as ExpandIcon } from '@mui/icons-material';
 
-import { iState } from '../../EditPromptModal';
+import { IState } from '../../EditPromptModal';
 import { Dayjs } from 'dayjs';
 
-interface iProps {
-    setState: Dispatch<SetStateAction<iState>>
+interface IProps {
+    setState: Dispatch<SetStateAction<IState>>;
 }
 
-const DateInput: FC<iProps> = ({ setState }) => {
+const DateInput: FC<IProps> = ({ setState }) => {
     const handleChange = (value: Dayjs | null) => {
         if (value) {
             setState((_state) => ({
                 ..._state,
                 date: value,
-            }))
+            }));
         }
-    }
+    };
 
     return (
-        <Accordion defaultExpanded sx={{ background: 'transparent', boxShadow: 'none' }}>
+        <Accordion
+            defaultExpanded
+            sx={{ background: 'transparent', boxShadow: 'none' }}
+        >
             <AccordionSummary expandIcon={<ExpandIcon />}>
                 Date
             </AccordionSummary>
             <AccordionDetails>
                 <StaticDatePicker
                     disablePast
-                    displayStaticWrapperAs='desktop'
+                    displayStaticWrapperAs="desktop"
                     onChange={handleChange}
                     showDaysOutsideCurrentMonth
                     slotProps={{
@@ -46,7 +47,7 @@ const DateInput: FC<iProps> = ({ setState }) => {
                 />
             </AccordionDetails>
         </Accordion>
-    )
-}
+    );
+};
 
-export default DateInput
+export default DateInput;

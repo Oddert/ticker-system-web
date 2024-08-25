@@ -1,5 +1,9 @@
-import { flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table'
-import type { ColumnDef } from '@tanstack/react-table'
+import {
+    flexRender,
+    getCoreRowModel,
+    useReactTable,
+} from '@tanstack/react-table';
+import type { ColumnDef } from '@tanstack/react-table';
 
 import {
     Box,
@@ -8,24 +12,25 @@ import {
     TableHead,
     TableRow,
     TableCell,
-} from '@mui/material'
+} from '@mui/material';
 
 interface ReactTableProps<TData> {
-    data: TData[]
-    columns: ColumnDef<TData>[]
-    compact?: boolean
+    data: TData[];
+    columns: ColumnDef<TData>[];
+    compact?: boolean;
 }
 
-const Table = <TData extends object>({ data, columns, compact }: ReactTableProps<TData>) => {
-    const {
-        getHeaderGroups,
-        getRowModel,
-    } = useReactTable<TData>({
+const Table = <TData extends object>({
+    data,
+    columns,
+    compact,
+}: ReactTableProps<TData>) => {
+    const { getHeaderGroups, getRowModel } = useReactTable<TData>({
         columns,
         enableGrouping: false,
         data,
         getCoreRowModel: getCoreRowModel(),
-    })
+    });
 
     return (
         <Box>
@@ -34,15 +39,16 @@ const Table = <TData extends object>({ data, columns, compact }: ReactTableProps
                     {getHeaderGroups().map((headerGroup, headerGroupIdx) => (
                         <TableRow key={headerGroupIdx}>
                             {headerGroup.headers.map((header, headerIdx) => (
-                                <TableCell key={headerIdx} sx={{ padding: compact ? '8px' : '16px' }}>
-                                    {
-                                        header.isPlaceholder
-                                            ? null
-                                            : flexRender(
-                                                header.column.columnDef.header,
-                                                header.getContext()
-                                            )
-                                    }
+                                <TableCell
+                                    key={headerIdx}
+                                    sx={{ padding: compact ? '8px' : '16px' }}
+                                >
+                                    {header.isPlaceholder
+                                        ? null
+                                        : flexRender(
+                                              header.column.columnDef.header,
+                                              header.getContext(),
+                                          )}
                                 </TableCell>
                             ))}
                         </TableRow>
@@ -52,13 +58,14 @@ const Table = <TData extends object>({ data, columns, compact }: ReactTableProps
                     {getRowModel().rows.map((row, rowIdx) => (
                         <TableRow key={rowIdx}>
                             {row.getVisibleCells().map((cell, cellIdx) => (
-                                <TableCell key={cellIdx} sx={{ padding: compact ? '8px' : '16px' }}>
-                                    {
-                                        flexRender(
-                                            cell.column.columnDef.cell,
-                                            cell.getContext()
-                                        )
-                                    }
+                                <TableCell
+                                    key={cellIdx}
+                                    sx={{ padding: compact ? '8px' : '16px' }}
+                                >
+                                    {flexRender(
+                                        cell.column.columnDef.cell,
+                                        cell.getContext(),
+                                    )}
                                 </TableCell>
                             ))}
                         </TableRow>
@@ -66,7 +73,7 @@ const Table = <TData extends object>({ data, columns, compact }: ReactTableProps
                 </TableBody>
             </MuiTable>
         </Box>
-    )
-}
+    );
+};
 
-export default Table
+export default Table;

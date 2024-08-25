@@ -1,4 +1,4 @@
-export interface iPrompt {
+export interface IPrompt {
     checklist: string | null; // FK.checklist
     createdOn: string; // date
     criticality: 'severe' | 'default' | 'reminder' | 'reference';
@@ -10,11 +10,11 @@ export interface iPrompt {
     deletedOn: string | null; // date
     description: string | null; // str(2000)
     links: string[]; // [] FK.links
-    promptId: string;// uuid
+    promptId: string; // uuid
     status: 'open' | 'resolved' | 'archived' | 'deleted';
     title: string;
     updatedOn: string | null; // date
-    userId: string,
+    userId: string;
 }
 
 // checklist (one to one prompt)

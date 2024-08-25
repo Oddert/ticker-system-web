@@ -1,51 +1,50 @@
 import { FC } from 'react';
 
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import {
+    Button,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    DialogTitle,
+} from '@mui/material';
 
-import type { iPrompt } from '../../types/prompt';
+import type { IPrompt } from '../../types/prompt';
 
 import { createDateStr } from '../../utils/commonUtils';
 
-interface iProps {
-    open?: boolean
-    onClose: () => void
-    prompt: iPrompt
+interface IProps {
+    open?: boolean;
+    onClose: () => void;
+    prompt: IPrompt;
 }
 
-const PromptViewer: FC<iProps> = ({
-    open = true,
-    onClose,
-    prompt,
-}) => {
+const PromptViewer: FC<IProps> = ({ open = true, onClose, prompt }) => {
     return (
         <Dialog open={open} onClose={onClose}>
-            <DialogTitle>
-                {prompt.title}
-            </DialogTitle>
+            <DialogTitle>{prompt.title}</DialogTitle>
             <DialogContent>
                 <DialogContentText>
                     Reminder for {createDateStr(new Date(prompt.date))}
                 </DialogContentText>
-                <DialogContentText
-                    variant='body2'
-                >
+                <DialogContentText variant="body2">
                     Created on {createDateStr(new Date(prompt.createdOn))}
                 </DialogContentText>
             </DialogContent>
             <DialogActions>
                 <Button
-                    onClick={onClose} 
+                    onClick={onClose}
                     sx={(theme) => ({ color: theme.palette.text.primary })}
-                    variant='outlined'
+                    variant="outlined"
                 >
                     Defer
                 </Button>
-                <Button onClick={onClose} variant='contained'>
+                <Button onClick={onClose} variant="contained">
                     Close
                 </Button>
             </DialogActions>
         </Dialog>
-    )
-}
+    );
+};
 
-export default PromptViewer
+export default PromptViewer;

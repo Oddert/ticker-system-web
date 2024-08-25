@@ -2,19 +2,19 @@ import { FC, Fragment, useState } from 'react';
 
 import { Button, Typography } from '@mui/material';
 
-import type { iPrompt } from '../../types/prompt';
+import type { IPrompt } from '../../types/prompt';
 
 import PromptViewer from '../PromptViewer';
 
-interface iProps {
-    prompt: iPrompt
+interface IProps {
+    prompt: IPrompt;
 }
 
-const Prompt: FC<iProps> = ({ prompt }) => {
-    const [open, setOpen] = useState(false)
+const Prompt: FC<IProps> = ({ prompt }) => {
+    const [open, setOpen] = useState(false);
 
-    const handleOpen = () => setOpen(true)
-    const handleClose = () => setOpen(false)
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     return (
         <Fragment>
@@ -30,15 +30,11 @@ const Prompt: FC<iProps> = ({ prompt }) => {
                     mb: '16px',
                 })}
             >
-                <Typography variant='h4'>{prompt.title}</Typography>
+                <Typography variant="h4">{prompt.title}</Typography>
             </Button>
-            <PromptViewer
-                open={open}
-                onClose={handleClose}
-                prompt={prompt}
-            />
+            <PromptViewer open={open} onClose={handleClose} prompt={prompt} />
         </Fragment>
-    )
-}
+    );
+};
 
-export default Prompt
+export default Prompt;

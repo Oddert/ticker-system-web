@@ -1,1 +1,1 @@
-export { default } from './AllPrompts'
+export { default } from './AllPrompts';

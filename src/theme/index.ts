@@ -1,12 +1,11 @@
-import { createTheme } from '@mui/material'
-import { ThemeOptions } from '@mui/material/styles/createTheme'
+import { createTheme, ThemeOptions } from '@mui/material';
 
-import breakpoints from './breakpoints'
-import components from './components'
-import palette from './palette'
-import shadows from './shadows'
-import typography from './typography'
-import zIndex from './zIndex'
+import breakpoints from './breakpoints';
+import components from './components';
+import palette from './palette';
+import shadows from './shadows';
+import typography from './typography';
+import zIndex from './zIndex';
 
 const themeOptions: ThemeOptions = {
     breakpoints,
@@ -17,6 +16,6 @@ const themeOptions: ThemeOptions = {
     zIndex,
 };
 
-const theme = createTheme(themeOptions)
+const theme = createTheme(themeOptions);
 
-export default theme
+export default theme;

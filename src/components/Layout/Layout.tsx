@@ -1,20 +1,18 @@
-import { FC, ReactElement } from 'react'
+import { FC, ReactElement } from 'react';
 
-import { Box } from '@mui/material'
+import { Box } from '@mui/material';
 
-import Header from '../Header/Header'
+import Header from '../Header/Header';
 
-interface iProps {
-    children: ReactElement
+interface IProps {
+    children: ReactElement;
 }
 
-const Layout: FC<iProps> = ({ children }) => (
+const Layout: FC<IProps> = ({ children }) => (
     <Box>
         <Header />
-        <Box sx={{ pt: '64px', pl: '80px' }}>
-            {children}
-        </Box>
+        <Box sx={{ pt: '64px', pl: '80px' }}>{children}</Box>
     </Box>
-)
+);
 
-export default Layout
+export default Layout;

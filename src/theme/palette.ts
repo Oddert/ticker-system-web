@@ -1,4 +1,4 @@
-import { Palette } from '@mui/material/styles'
+import { Palette } from '@mui/material/styles';
 
 const palette: Partial<Palette> = {
     mode: 'dark',
@@ -16,7 +16,7 @@ const palette: Partial<Palette> = {
         main: '#2d3e50',
         light: '#576473',
         dark: '#1c2631',
-        contrastText: '#ffffff'
+        contrastText: '#ffffff',
     },
     background: {
         paper: '#2d3e50',
@@ -24,7 +24,7 @@ const palette: Partial<Palette> = {
     },
     common: {
         black: '#222',
-        white: '#ecf0f1'
+        white: '#ecf0f1',
     },
     contrastThreshold: 3,
     tonalOffset: 0.2,
@@ -64,10 +64,10 @@ const palette: Partial<Palette> = {
         700: '#616161',
         800: '#424242',
         900: '#212121',
-        'A100': '#f5f5f5',
-        'A200': '#eeeeee',
-        'A400': '#bdbdbd',
-        'A700': '#616161',
+        A100: '#f5f5f5',
+        A200: '#eeeeee',
+        A400: '#bdbdbd',
+        A700: '#616161',
     },
     text: {
         primary: '#ffffff',
@@ -89,6 +89,6 @@ const palette: Partial<Palette> = {
     },
     // getContrastText: () => {},
     // augmentColor: () => {},
-}
+};
 
-export default palette
+export default palette;

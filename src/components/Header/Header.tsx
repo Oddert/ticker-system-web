@@ -1,29 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { Box, IconButton, Toolbar, Typography } from '@mui/material'
-import { useNavigate } from 'react-router'
+import { Box, IconButton, Toolbar, Typography } from '@mui/material';
+import { useNavigate } from 'react-router';
 
-import HomeIcon from '@mui/icons-material/FolderSpecial'
-import MenuIcon from '@mui/icons-material/Menu'
+import HomeIcon from '@mui/icons-material/FolderSpecial';
+import MenuIcon from '@mui/icons-material/Menu';
 
-import { AppBar, drawerWidth } from './Header.styles'
+import { AppBar, drawerWidth } from './Header.styles';
 
-import Sidebar from '../Sidebar/Sidebar'
+import Sidebar from '../Sidebar/Sidebar';
 
 const Header = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false);
 
     const handleDrawerClose = () => {
-        setOpen(false)
-    }
+        setOpen(false);
+    };
 
     const handleToggleDrawer = () => {
-        setOpen(!open)
-    }
+        setOpen(!open);
+    };
 
-    const handleClickHome = () => navigate('/')
+    const handleClickHome = () => navigate('/');
 
     return (
         <Box
@@ -31,7 +31,7 @@ const Header = () => {
                 position: 'sticky',
                 top: 0,
                 left: 0,
-                zIndex: (theme) => (theme.zIndex.drawer || 0) + 2
+                zIndex: (theme) => (theme.zIndex.drawer || 0) + 2,
             }}
         >
             <AppBar
@@ -40,15 +40,15 @@ const Header = () => {
                 //     top: 0,
                 //     zIndex: (theme) => (theme.zIndex.drawer || 0) + 2
                 // }}
-                position='fixed'
+                position="fixed"
                 open={open}
             >
                 <Toolbar>
                     <IconButton
-                        color='inherit'
-                        aria-label='open drawer'
+                        color="inherit"
+                        aria-label="open drawer"
                         onClick={handleToggleDrawer}
-                        edge='start'
+                        edge="start"
                         sx={{
                             marginRight: 5,
                         }}
@@ -56,10 +56,10 @@ const Header = () => {
                         <MenuIcon />
                     </IconButton>
                     <IconButton
-                        color='inherit'
-                        aria-label='home page'
+                        color="inherit"
+                        aria-label="home page"
                         onClick={handleClickHome}
-                        edge='start'
+                        edge="start"
                         sx={{
                             marginRight: 5,
                         }}
@@ -84,7 +84,7 @@ const Header = () => {
                                 fontSize: '36px',
                             },
                         })}
-                        variant='h1'
+                        variant="h1"
                     >
                         Tickler Files
                     </Typography>
@@ -96,7 +96,7 @@ const Header = () => {
                 open={open}
             />
         </Box>
-    )
-}
+    );
+};
 
-export default Header
+export default Header;

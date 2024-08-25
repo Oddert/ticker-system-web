@@ -1,1 +1,1 @@
-export { default } from './PromptViewer'
+export { default } from './PromptViewer';

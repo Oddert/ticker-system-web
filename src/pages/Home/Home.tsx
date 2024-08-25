@@ -1,29 +1,29 @@
-import React, { useMemo } from 'react'
+import React, { useMemo } from 'react';
 
-import { Box, Container, Typography } from '@mui/material'
+import { Box, Container, Typography } from '@mui/material';
 
-import PlantImage from '../../assets/placeholder-plant.png'
+import PlantImage from '../../assets/placeholder-plant.png';
 
-import { useAppSelector } from '../../hooks/ReduxHookWrappers'
+import { useAppSelector } from '../../hooks/ReduxHookWrappers';
 
-import { getPromptsOrdered } from '../../redux/slices/prompt/prompt.selector'
+import { getPromptsOrdered } from '../../redux/slices/prompt/prompt.selector';
 
-import { createDateStr } from '../../utils/commonUtils'
-import Prompt from '../../components/Prompt/Prompt'
+import { createDateStr } from '../../utils/commonUtils';
+import Prompt from '../../components/Prompt/Prompt';
 import CreatePrompt from '../../components/CreatePrompt';
 
-const dateStr = createDateStr(new Date())
+const dateStr = createDateStr(new Date());
 
 const Home = () => {
-    const orderedPrompts = useAppSelector(getPromptsOrdered)
+    const orderedPrompts = useAppSelector(getPromptsOrdered);
 
     const todayPrompts = useMemo(() => {
-        const today = new Date()
-        const year = String(today.getFullYear())
-        const month = String(today.getMonth())
-        const day = String(today.getDate())
-        return orderedPrompts[year][month][day]
-    }, [orderedPrompts])
+        const today = new Date();
+        const year = String(today.getFullYear());
+        const month = String(today.getMonth());
+        const day = String(today.getDate());
+        return orderedPrompts[year][month][day];
+    }, [orderedPrompts]);
 
     return (
         <Container
@@ -38,16 +38,18 @@ const Home = () => {
                     width: '100%',
                     gridRow: '1 / -1',
                     gridColumn: '2',
-                    filter: 'saturate(70%)'
-                }
+                    filter: 'saturate(70%)',
+                },
             }}
         >
             <Typography
                 textAlign={'left'}
-                sx={{
-                    // gridColumn: '1 / -1',
-                }}
-                variant='h2'
+                sx={
+                    {
+                        // gridColumn: '1 / -1',
+                    }
+                }
+                variant="h2"
             >
                 {dateStr}
             </Typography>
@@ -63,11 +65,11 @@ const Home = () => {
                 {todayPrompts.map((prompt, idx) => (
                     <Prompt key={idx} prompt={prompt} />
                 ))}
-                <CreatePrompt buttonText='New prompt' />
+                <CreatePrompt buttonText="New prompt" />
             </Box>
-            <img alt='' src={PlantImage} />
+            <img alt="" src={PlantImage} />
         </Container>
-    )
-}
+    );
+};
 
-export default Home
+export default Home;

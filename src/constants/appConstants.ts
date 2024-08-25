@@ -1,11 +1,10 @@
-
 /**
  * User's locale setting for localisation functions.
  * @constant
  * @category Constants
  * @subcategory App Constants
  */
-export const LOCALE = 'en-GB'
+export const LOCALE = 'en-GB';
 
 /**
  * The predominant currency unit for the user.
@@ -13,9 +12,9 @@ export const LOCALE = 'en-GB'
  * @category Constants
  * @subcategory App Constants
  */
-export const CURRENCY_SYMBOL = '£'
+export const CURRENCY_SYMBOL = '£';
 
-export const isDeprivedAmericanAndLikesNonsenseDates = false
+export const isDeprivedAmericanAndLikesNonsenseDates = false;
 
 export const dayLabelsLong = [
     'Sunday',
@@ -25,7 +24,7 @@ export const dayLabelsLong = [
     'Thursday',
     'Friday',
     'Saturday',
-]
+];
 export const monthLabelsLong = [
     'January',
     'February',
@@ -39,4 +38,4 @@ export const monthLabelsLong = [
     'October',
     'November',
     'December',
-]
+];

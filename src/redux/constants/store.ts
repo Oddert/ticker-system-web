@@ -1,13 +1,13 @@
-import { configureStore } from '@reduxjs/toolkit'
-import createSagaMiddleware from 'redux-saga'
+import { configureStore } from '@reduxjs/toolkit';
+import createSagaMiddleware from 'redux-saga';
 
 // import categoryReducer from '../slices/categorySlice'
 // import transactionRouter from '../slices/transactionsSlice'
-import promptSlice from '../slices/prompt/prompt.slice'
+import promptSlice from '../slices/prompt/prompt.slice';
 
-import rootSaga from './rootSaga'
+import rootSaga from './rootSaga';
 
-const sagaMiddleware = createSagaMiddleware()
+const sagaMiddleware = createSagaMiddleware();
 
 const store = configureStore({
     reducer: {
@@ -15,13 +15,14 @@ const store = configureStore({
         // category: categoryReducer,
         prompt: promptSlice.reducer,
     },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware)
-})
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(sagaMiddleware),
+});
 
-sagaMiddleware.run(rootSaga)
+sagaMiddleware.run(rootSaga);
 
-export default store
+export default store;
 
-export type RootState = ReturnType<typeof store.getState>
+export type RootState = ReturnType<typeof store.getState>;
 
-export type AppDispatch = typeof store.dispatch
+export type AppDispatch = typeof store.dispatch;

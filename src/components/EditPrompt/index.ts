@@ -1,1 +1,1 @@
-export { default } from './EditPrompt'
+export { default } from './EditPrompt';

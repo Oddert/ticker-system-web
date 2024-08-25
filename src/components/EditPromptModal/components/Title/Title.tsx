@@ -1,22 +1,22 @@
-import { ChangeEvent, Dispatch, FC, SetStateAction } from 'react'
+import { ChangeEvent, Dispatch, FC, SetStateAction } from 'react';
 
-import { Box, Button, FormControlLabel, Input } from '@mui/material'
+import { Box, Button, FormControlLabel, Input } from '@mui/material';
 import { Close as ClearIcon } from '@mui/icons-material';
 
-import { iState } from '../../EditPromptModal'
+import { IState } from '../../EditPromptModal';
 
-interface iProps {
-    setState: Dispatch<SetStateAction<iState>>
-    title: string
+interface IProps {
+    setState: Dispatch<SetStateAction<IState>>;
+    title: string;
 }
 
-const Title: FC<iProps> = ({ setState, title }) => {
+const Title: FC<IProps> = ({ setState, title }) => {
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState((_state) => ({
             ..._state,
             title: event.target.value,
-        }))
-    }
+        }));
+    };
 
     return (
         <Box
@@ -36,24 +36,27 @@ const Title: FC<iProps> = ({ setState, title }) => {
                         endAdornment={
                             <Button
                                 disabled={!title.length}
-                                onClick={() => setState(
-                                    (_state) => ({ ..._state, title: '' })
-                                )}
+                                onClick={() =>
+                                    setState((_state) => ({
+                                        ..._state,
+                                        title: '',
+                                    }))
+                                }
                                 sx={{
-                                    opacity: title.length ? 1 : 0
+                                    opacity: title.length ? 1 : 0,
                                 }}
-                                title='clear'
+                                title="clear"
                             >
                                 <ClearIcon />
                             </Button>
                         }
                         onChange={handleChange}
-                        type='text'
+                        type="text"
                         value={title}
                     />
                 }
-                label='title'
-                labelPlacement='top'
+                label="title"
+                labelPlacement="top"
                 sx={{
                     alignItems: 'flex-start',
                     m: '16px 0',
@@ -61,7 +64,7 @@ const Title: FC<iProps> = ({ setState, title }) => {
                 }}
             />
         </Box>
-    )
-}
+    );
+};
 
-export default Title
+export default Title;

@@ -14,35 +14,40 @@ import {
 } from '@mui/material';
 import { ExpandMore as ExpandIcon } from '@mui/icons-material';
 
-import type { iPrompt } from '../../../../types/prompt';
+import type { IPrompt } from '../../../../types/prompt';
 
-import { iState } from '../../EditPromptModal';
+import { IState } from '../../EditPromptModal';
 
-interface iProps {
-    deferPeriod: iPrompt['deferPeriod'];
+interface IProps {
+    deferPeriod: IPrompt['deferPeriod'];
     deferQuantity: number;
-    setState: Dispatch<SetStateAction<iState>>
+    setState: Dispatch<SetStateAction<IState>>;
 }
 
-const Deferral: FC<iProps> = ({ deferPeriod, deferQuantity, setState }) => {
+const Deferral: FC<IProps> = ({ deferPeriod, deferQuantity, setState }) => {
     const handleChangeQuantity = (event: ChangeEvent<HTMLInputElement>) => {
         if (event.target?.value) {
             setState((_state) => ({
                 ..._state,
-                deferQuantity: Number(event.target.value)
-            }))
+                deferQuantity: Number(event.target.value),
+            }));
         }
-    }
+    };
 
-    const handleChangePeriod = (event: SelectChangeEvent<'days' | 'weeks' | 'months'>) => {
+    const handleChangePeriod = (
+        event: SelectChangeEvent<'days' | 'weeks' | 'months'>,
+    ) => {
         setState((_state) => ({
             ..._state,
-            deferPeriod: event.target.value as iState['deferPeriod']
-        }))
-    }
+            deferPeriod: event.target.value as IState['deferPeriod'],
+        }));
+    };
 
     return (
-        <Accordion defaultExpanded sx={{ background: 'transparent', boxShadow: 'none' }}>
+        <Accordion
+            defaultExpanded
+            sx={{ background: 'transparent', boxShadow: 'none' }}
+        >
             <AccordionSummary expandIcon={<ExpandIcon />}>
                 Deferral
             </AccordionSummary>
@@ -50,8 +55,9 @@ const Deferral: FC<iProps> = ({ deferPeriod, deferQuantity, setState }) => {
                 <Typography>
                     How long should the prompt be postponed if dismissed?
                 </Typography>
-                <Typography variant='body2'>
-                    This is changeable at the point of deferral so you can ignore it if you want.
+                <Typography variant="body2">
+                    This is changeable at the point of deferral so you can
+                    ignore it if you want.
                 </Typography>
                 <Box
                     sx={{
@@ -62,9 +68,9 @@ const Deferral: FC<iProps> = ({ deferPeriod, deferQuantity, setState }) => {
                 >
                     <Input
                         onChange={handleChangeQuantity}
-                        type='number'
+                        type="number"
                         sx={{
-                            width: '100px'
+                            width: '100px',
                         }}
                         value={deferQuantity}
                     />
@@ -76,14 +82,26 @@ const Deferral: FC<iProps> = ({ deferPeriod, deferQuantity, setState }) => {
                         }}
                         value={deferPeriod}
                     >
-                        <FormControlLabel value='days' control={<Radio />} label='Days' />
-                        <FormControlLabel value='weeks' control={<Radio />} label='Weeks' />
-                        <FormControlLabel value='months' control={<Radio />} label='Months' />
+                        <FormControlLabel
+                            value="days"
+                            control={<Radio />}
+                            label="Days"
+                        />
+                        <FormControlLabel
+                            value="weeks"
+                            control={<Radio />}
+                            label="Weeks"
+                        />
+                        <FormControlLabel
+                            value="months"
+                            control={<Radio />}
+                            label="Months"
+                        />
                     </RadioGroup>
                 </Box>
             </AccordionDetails>
         </Accordion>
-    )
-}
+    );
+};
 
-export default Deferral
+export default Deferral;
