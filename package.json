@@ -88,7 +88,7 @@
     "test:watch": "node scripts/test.js --verbose --watch",
     "docs": "jsdoc -c jsdoc.conf.json -R README.md -r",
     "lint": "eslint . --config .eslintrc.json",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --config .eslintrc.json --fix"
   },
   "eslintConfig": {
     "extends": [

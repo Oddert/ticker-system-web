@@ -26,7 +26,7 @@ const App = () => {
     // }, [])
 
     return (
-        <Box className="App">
+        <Box className='App'>
             <CssBaseline enableColorScheme />
             <RouterProvider router={router} />
         </Box>
