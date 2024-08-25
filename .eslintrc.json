@@ -1,0 +1,31 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+        // "airbnb-base",
+        // "prettier",
+        // "plugin:react/recommended",
+        // "airbnb",
+        // "prettier"
+        // "airbnb",
+        "airbnb-typescript",
+        // "airbnb/hooks",
+        "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+        "project": "./tsconfig.json", // path of tsconfig file
+        "ecmaVersion": 12,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true,
+            "tsx": true
+        }
+    },
+    "plugins": ["react", "prettier"],
+    "rules": {
+        "prettier/prettier": "error"
+    }
+}
