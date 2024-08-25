@@ -30,7 +30,7 @@ const Prompt: FC<IProps> = ({ prompt }) => {
                     mb: '16px',
                 })}
             >
-                <Typography variant="h4">{prompt.title}</Typography>
+                <Typography variant='h4'>{prompt.title}</Typography>
             </Button>
             <PromptViewer open={open} onClose={handleClose} prompt={prompt} />
         </Fragment>

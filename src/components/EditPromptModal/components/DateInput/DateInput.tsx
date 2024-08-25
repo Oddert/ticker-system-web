@@ -32,7 +32,7 @@ const DateInput: FC<IProps> = ({ setState }) => {
             <AccordionDetails>
                 <StaticDatePicker
                     disablePast
-                    displayStaticWrapperAs="desktop"
+                    displayStaticWrapperAs='desktop'
                     onChange={handleChange}
                     showDaysOutsideCurrentMonth
                     slotProps={{

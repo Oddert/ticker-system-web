@@ -27,7 +27,7 @@ const PromptViewer: FC<IProps> = ({ open = true, onClose, prompt }) => {
                 <DialogContentText>
                     Reminder for {createDateStr(new Date(prompt.date))}
                 </DialogContentText>
-                <DialogContentText variant="body2">
+                <DialogContentText variant='body2'>
                     Created on {createDateStr(new Date(prompt.createdOn))}
                 </DialogContentText>
             </DialogContent>
@@ -35,11 +35,11 @@ const PromptViewer: FC<IProps> = ({ open = true, onClose, prompt }) => {
                 <Button
                     onClick={onClose}
                     sx={(theme) => ({ color: theme.palette.text.primary })}
-                    variant="outlined"
+                    variant='outlined'
                 >
                     Defer
                 </Button>
-                <Button onClick={onClose} variant="contained">
+                <Button onClick={onClose} variant='contained'>
                     Close
                 </Button>
             </DialogActions>

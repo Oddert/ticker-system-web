@@ -45,18 +45,18 @@ const Title: FC<IProps> = ({ setState, title }) => {
                                 sx={{
                                     opacity: title.length ? 1 : 0,
                                 }}
-                                title="clear"
+                                title='clear'
                             >
                                 <ClearIcon />
                             </Button>
                         }
                         onChange={handleChange}
-                        type="text"
+                        type='text'
                         value={title}
                     />
                 }
-                label="title"
-                labelPlacement="top"
+                label='title'
+                labelPlacement='top'
                 sx={{
                     alignItems: 'flex-start',
                     m: '16px 0',

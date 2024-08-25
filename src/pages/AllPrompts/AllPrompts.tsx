@@ -59,7 +59,7 @@ const AllPrompts: FC = () => {
                                 background: theme.palette.secondary.dark,
                             }}
                         >
-                            <Typography variant="h2">{yearKey}</Typography>
+                            <Typography variant='h2'>{yearKey}</Typography>
                         </Box>
                         {Object.entries(yearValue).map(
                             ([monthKey, monthValue], monthIdx) => {
@@ -81,7 +81,7 @@ const AllPrompts: FC = () => {
                                                 gridColumn: 2,
                                             })}
                                         >
-                                            <Typography variant="h3">
+                                            <Typography variant='h3'>
                                                 {
                                                     monthLabelsLong[
                                                         Number(monthKey)

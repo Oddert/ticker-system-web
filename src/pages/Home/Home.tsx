@@ -49,7 +49,7 @@ const Home = () => {
                         // gridColumn: '1 / -1',
                     }
                 }
-                variant="h2"
+                variant='h2'
             >
                 {dateStr}
             </Typography>
@@ -65,9 +65,9 @@ const Home = () => {
                 {todayPrompts.map((prompt, idx) => (
                     <Prompt key={idx} prompt={prompt} />
                 ))}
-                <CreatePrompt buttonText="New prompt" />
+                <CreatePrompt buttonText='New prompt' />
             </Box>
-            <img alt="" src={PlantImage} />
+            <img alt='' src={PlantImage} />
         </Container>
     );
 };

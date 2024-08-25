@@ -40,15 +40,15 @@ const Header = () => {
                 //     top: 0,
                 //     zIndex: (theme) => (theme.zIndex.drawer || 0) + 2
                 // }}
-                position="fixed"
+                position='fixed'
                 open={open}
             >
                 <Toolbar>
                     <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
+                        color='inherit'
+                        aria-label='open drawer'
                         onClick={handleToggleDrawer}
-                        edge="start"
+                        edge='start'
                         sx={{
                             marginRight: 5,
                         }}
@@ -56,10 +56,10 @@ const Header = () => {
                         <MenuIcon />
                     </IconButton>
                     <IconButton
-                        color="inherit"
-                        aria-label="home page"
+                        color='inherit'
+                        aria-label='home page'
                         onClick={handleClickHome}
-                        edge="start"
+                        edge='start'
                         sx={{
                             marginRight: 5,
                         }}
@@ -84,7 +84,7 @@ const Header = () => {
                                 fontSize: '36px',
                             },
                         })}
-                        variant="h1"
+                        variant='h1'
                     >
                         Tickler Files
                     </Typography>

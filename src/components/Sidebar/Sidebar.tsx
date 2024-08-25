@@ -36,7 +36,7 @@ const Sidebar: React.FC<Props> = ({ drawerWidth, handleDrawerClose, open }) => {
             onClose={handleDrawerClose}
             open={open}
             sx={{ width: drawerWidth }}
-            variant="permanent"
+            variant='permanent'
         >
             <DrawerHeader>
                 <IconButton onClick={handleDrawerClose}>

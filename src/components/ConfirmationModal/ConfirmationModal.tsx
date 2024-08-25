@@ -22,7 +22,7 @@ const ConfirmationModal: FC<IProps> = ({
     return (
         <Dialog open={open}>
             <Box sx={{ p: '32px 64px', minWidth: '40vw' }}>
-                <Typography variant="h3">{title}</Typography>
+                <Typography variant='h3'>{title}</Typography>
                 <Box
                     sx={{
                         display: 'flex',
@@ -31,10 +31,10 @@ const ConfirmationModal: FC<IProps> = ({
                         mt: '32px',
                     }}
                 >
-                    <Button onClick={onClickCancel} variant="outlined">
+                    <Button onClick={onClickCancel} variant='outlined'>
                         {cancelText}
                     </Button>
-                    <Button onClick={onClickConfirm} variant="contained">
+                    <Button onClick={onClickConfirm} variant='contained'>
                         {confirmText}
                     </Button>
                 </Box>

@@ -55,7 +55,7 @@ const Deferral: FC<IProps> = ({ deferPeriod, deferQuantity, setState }) => {
                 <Typography>
                     How long should the prompt be postponed if dismissed?
                 </Typography>
-                <Typography variant="body2">
+                <Typography variant='body2'>
                     This is changeable at the point of deferral so you can
                     ignore it if you want.
                 </Typography>
@@ -68,7 +68,7 @@ const Deferral: FC<IProps> = ({ deferPeriod, deferQuantity, setState }) => {
                 >
                     <Input
                         onChange={handleChangeQuantity}
-                        type="number"
+                        type='number'
                         sx={{
                             width: '100px',
                         }}
@@ -83,19 +83,19 @@ const Deferral: FC<IProps> = ({ deferPeriod, deferQuantity, setState }) => {
                         value={deferPeriod}
                     >
                         <FormControlLabel
-                            value="days"
+                            value='days'
                             control={<Radio />}
-                            label="Days"
+                            label='Days'
                         />
                         <FormControlLabel
-                            value="weeks"
+                            value='weeks'
                             control={<Radio />}
-                            label="Weeks"
+                            label='Weeks'
                         />
                         <FormControlLabel
-                            value="months"
+                            value='months'
                             control={<Radio />}
-                            label="Months"
+                            label='Months'
                         />
                     </RadioGroup>
                 </Box>

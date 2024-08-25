@@ -95,7 +95,7 @@ const EditPromptModal: FC<IProps> = ({
         <Fragment>
             <Dialog onClose={handleClose} open={open}>
                 <Box sx={{ p: '32px 64px' }}>
-                    <Typography variant="h3">Create new prompt</Typography>
+                    <Typography variant='h3'>Create new prompt</Typography>
                     <Title title={state.title} setState={setState} />
                     <DateInput setState={setState} />
                     <Deferral
@@ -110,22 +110,22 @@ const EditPromptModal: FC<IProps> = ({
                             gridGap: '16px',
                         }}
                     >
-                        <Button onClick={handleClose} variant="text">
+                        <Button onClick={handleClose} variant='text'>
                             Cancel
                         </Button>
-                        <Button onClick={handleSave} variant="contained">
+                        <Button onClick={handleSave} variant='contained'>
                             Save
                         </Button>
                     </Box>
                 </Box>
             </Dialog>
             <ConfirmationModal
-                cancelText="Go back"
-                confirmText="Discard changes"
+                cancelText='Go back'
+                confirmText='Discard changes'
                 onClickCancel={handleClickCancel}
                 onClickConfirm={handleClickConfirm}
                 open={confirm}
-                title="Discard changes?"
+                title='Discard changes?'
             />
         </Fragment>
     );

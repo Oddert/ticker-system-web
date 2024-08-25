@@ -60,7 +60,7 @@ const EditableText = ({
             })}
         >
             <Button
-                className="EditableText_open"
+                className='EditableText_open'
                 onClick={() => setOpen(true)}
                 sx={{
                     position: 'absolute',
@@ -77,7 +77,7 @@ const EditableText = ({
                     value={value}
                 />
             ) : (
-                <Typography className="EditableText__title" {...headingProps}>
+                <Typography className='EditableText__title' {...headingProps}>
                     {text}
                 </Typography>
             )}
