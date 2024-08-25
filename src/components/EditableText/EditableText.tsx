@@ -1,15 +1,15 @@
-import { useCallback, useEffect, useState } from 'react'
-import { Box, Button, TextField, Typography } from '@mui/material'
+import { useCallback, useEffect, useState } from 'react';
+import { Box, Button, TextField, Typography } from '@mui/material';
 
-import { Edit as EditIcon } from '@mui/icons-material'
+import { Edit as EditIcon } from '@mui/icons-material';
 
 interface Props {
-    containerSx: any
-    headingProps: any
-    iconPosition: 'start'|'end'
-    onChange: (value: string) => void
-    text: string
-    verticalCenter?: boolean
+    containerSx: any;
+    headingProps: any;
+    iconPosition: 'start' | 'end';
+    onChange: (value: string) => void;
+    text: string;
+    verticalCenter?: boolean;
 }
 
 const EditableText = ({
@@ -20,17 +20,17 @@ const EditableText = ({
     text,
     verticalCenter,
 }: Props) => {
-    const [open, setOpen] = useState(false)
-    const [value, setValue] = useState('')
+    const [open, setOpen] = useState(false);
+    const [value, setValue] = useState('');
 
     const handleBlur = useCallback(() => {
-        setOpen(false)
-        onChange(value)
-    }, [onChange, value])
+        setOpen(false);
+        onChange(value);
+    }, [onChange, value]);
 
     useEffect(() => {
-        setValue(text)
-    }, [text])
+        setValue(text);
+    }, [text]);
 
     return (
         <Box
@@ -49,7 +49,7 @@ const EditableText = ({
                 },
                 '& .EditableText__title': {
                     display: 'flex',
-                    alignItems: verticalCenter ? 'center' : 'flex-start'
+                    alignItems: verticalCenter ? 'center' : 'flex-start',
                 },
                 '&:hover': {
                     '& .EditableText_open': {
@@ -60,7 +60,7 @@ const EditableText = ({
             })}
         >
             <Button
-                className='EditableText_open'
+                className="EditableText_open"
                 onClick={() => setOpen(true)}
                 sx={{
                     position: 'absolute',
@@ -73,17 +73,17 @@ const EditableText = ({
                 <TextField
                     autoFocus
                     onBlur={handleBlur}
-                    onChange={(e) => setValue(e.target.value)}    
+                    onChange={(e) => setValue(e.target.value)}
                     value={value}
                 />
             ) : (
-                <Typography className='EditableText__title' {...headingProps}>
+                <Typography className="EditableText__title" {...headingProps}>
                     {text}
                 </Typography>
             )}
         </Box>
-    )
-}
+    );
+};
 
 EditableText.defaultProps = {
     containerSx: {},
@@ -91,6 +91,6 @@ EditableText.defaultProps = {
     iconPosition: 'start',
     onChange: () => {},
     text: '',
-}
+};
 
-export default EditableText
+export default EditableText;

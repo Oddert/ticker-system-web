@@ -1,1 +1,1 @@
-export { default } from './CreatePrompt'
+export { default } from './CreatePrompt';

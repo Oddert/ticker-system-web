@@ -1,6 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 import {
     Drawer,
@@ -12,14 +11,14 @@ import {
     ListItemText,
     useTheme,
     styled,
-} from '@mui/material'
+} from '@mui/material';
 
-import { navigation } from '../../constants/routerConstants'
+import { navigation } from '../../constants/routerConstants';
 
 interface Props {
     drawerWidth: number;
-    handleDrawerClose: (args: any) => void
-    open: boolean
+    handleDrawerClose: (args: any) => void;
+    open: boolean;
 }
 
 const DrawerHeader = styled('div')(({ theme }) => ({
@@ -28,16 +27,16 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     justifyContent: 'flex-end',
     padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar,
-}))
+}));
 
 const Sidebar: React.FC<Props> = ({ drawerWidth, handleDrawerClose, open }) => {
-    const theme = useTheme()
+    const theme = useTheme();
     return (
         <Drawer
             onClose={handleDrawerClose}
             open={open}
             sx={{ width: drawerWidth }}
-            variant='permanent'
+            variant="permanent"
         >
             <DrawerHeader>
                 <IconButton onClick={handleDrawerClose}>
@@ -52,7 +51,7 @@ const Sidebar: React.FC<Props> = ({ drawerWidth, handleDrawerClose, open }) => {
                         title={label}
                         sx={{ display: 'block' }}
                     >
-                        <Link to={location}  >
+                        <Link to={location}>
                             <ListItemButton
                                 onClick={handleDrawerClose}
                                 sx={{
@@ -61,13 +60,12 @@ const Sidebar: React.FC<Props> = ({ drawerWidth, handleDrawerClose, open }) => {
                                     px: 2.5,
                                     borderRadius: '8px',
                                     margin: '8px',
-                                    ...(
-                                        location === window.location.pathname
-                                            ? {
-                                                background: theme.palette.secondary.dark,
-                                            }
-                                            : {}
-                                    )
+                                    ...(location === window.location.pathname
+                                        ? {
+                                              background:
+                                                  theme.palette.secondary.dark,
+                                          }
+                                        : {}),
                                 }}
                             >
                                 <ListItemIcon
@@ -79,26 +77,19 @@ const Sidebar: React.FC<Props> = ({ drawerWidth, handleDrawerClose, open }) => {
                                 >
                                     <Icon />
                                 </ListItemIcon>
-                                {open && (
-                                    <ListItemText primary={label} />
-                                )}
+                                {open && <ListItemText primary={label} />}
                             </ListItemButton>
                         </Link>
                     </ListItem>
                 ))}
             </List>
         </Drawer>
-    )
-}
-
-Sidebar.propTypes = {
-    handleDrawerClose: PropTypes.func.isRequired,
-    open: PropTypes.bool.isRequired,
-}
+    );
+};
 
 Sidebar.defaultProps = {
     handleDrawerClose: () => {},
     open: false,
-}
+};
 
-export default Sidebar
+export default Sidebar;

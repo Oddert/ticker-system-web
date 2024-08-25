@@ -1,1 +1,1 @@
-export { default } from './LookAhead'
+export { default } from './LookAhead';

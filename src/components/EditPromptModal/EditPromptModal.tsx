@@ -1,14 +1,9 @@
 import { FC, Fragment, useEffect, useState } from 'react';
 import dayjs, { Dayjs } from 'dayjs';
 
-import {
-    Box,
-    Button,
-    Dialog,
-    Typography,
-} from '@mui/material';
+import { Box, Button, Dialog, Typography } from '@mui/material';
 
-import type { iPrompt } from '../../types/prompt';
+import type { IPrompt } from '../../types/prompt';
 
 import Title from './components/Title';
 import DateInput from './components/DateInput';
@@ -16,52 +11,53 @@ import Deferral from './components/Deferral';
 
 import ConfirmationModal from '../ConfirmationModal';
 
-export interface iState {
-    title: string
-    date: Dayjs
-    deferQuantity: number
-    deferPeriod: iPrompt['deferPeriod']
+export interface IState {
+    title: string;
+    date: Dayjs;
+    deferQuantity: number;
+    deferPeriod: IPrompt['deferPeriod'];
 }
 
-interface iProps {
-    initialState?: Partial<iState>
-    onClose: () => void
-    onSave: (state: iState) => void
-    open: boolean
+interface IProps {
+    initialState?: Partial<IState>;
+    onClose: () => void;
+    onSave: (state: IState) => void;
+    open: boolean;
 }
 
-const initialDate = dayjs()
+const initialDate = dayjs();
 
-const EditPromptModal: FC<iProps> = ({
+const EditPromptModal: FC<IProps> = ({
     initialState,
     onClose,
     onSave,
     open,
 }) => {
-    const [confirm, setConfirm] = useState(false)
+    const [confirm, setConfirm] = useState(false);
 
-    const [state, setState] = useState<iState>({
+    const [state, setState] = useState<IState>({
         title: '',
         date: initialDate,
         deferQuantity: 2,
-        deferPeriod: 'day'
-    })
+        deferPeriod: 'day',
+    });
 
     useEffect(() => {
         if (initialState) {
             setState((_state) => ({
                 title: initialState?.title || _state.title,
                 date: initialState?.date || _state.date,
-                deferQuantity: initialState?.deferQuantity || _state.deferQuantity,
+                deferQuantity:
+                    initialState?.deferQuantity || _state.deferQuantity,
                 deferPeriod: initialState?.deferPeriod || _state.deferPeriod,
-            }))
+            }));
         }
-    }, [initialState])
+    }, [initialState]);
 
     const handleSave = () => {
-        console.log('SAVE!')
-        onSave(state)
-    }
+        console.log('SAVE!');
+        onSave(state);
+    };
 
     const resetState = () => {
         setState({
@@ -69,8 +65,8 @@ const EditPromptModal: FC<iProps> = ({
             date: initialDate,
             deferQuantity: 2,
             deferPeriod: 'day',
-        })
-    }
+        });
+    };
 
     const handleClose = () => {
         if (
@@ -79,30 +75,27 @@ const EditPromptModal: FC<iProps> = ({
             state.deferQuantity !== 2 ||
             state.deferPeriod !== 'day'
         ) {
-            setConfirm(true)
+            setConfirm(true);
         } else {
-            resetState()
-            onClose()
-            setConfirm(false)
+            resetState();
+            onClose();
+            setConfirm(false);
         }
-    }
-    
-    const handleClickConfirm = () => {
-        resetState()
-        onClose()
-        setConfirm(false)
-    }
+    };
 
-    const handleClickCancel = () => setConfirm(false)
+    const handleClickConfirm = () => {
+        resetState();
+        onClose();
+        setConfirm(false);
+    };
+
+    const handleClickCancel = () => setConfirm(false);
 
     return (
         <Fragment>
-            <Dialog
-                onClose={handleClose}
-                open={open}
-            >
+            <Dialog onClose={handleClose} open={open}>
                 <Box sx={{ p: '32px 64px' }}>
-                    <Typography variant='h3'>Create new prompt</Typography>
+                    <Typography variant="h3">Create new prompt</Typography>
                     <Title title={state.title} setState={setState} />
                     <DateInput setState={setState} />
                     <Deferral
@@ -117,25 +110,25 @@ const EditPromptModal: FC<iProps> = ({
                             gridGap: '16px',
                         }}
                     >
-                        <Button onClick={handleClose} variant='text'>
+                        <Button onClick={handleClose} variant="text">
                             Cancel
                         </Button>
-                        <Button onClick={handleSave} variant='contained'>
+                        <Button onClick={handleSave} variant="contained">
                             Save
                         </Button>
                     </Box>
                 </Box>
             </Dialog>
             <ConfirmationModal
-                cancelText='Go back'
-                confirmText='Discard changes'
+                cancelText="Go back"
+                confirmText="Discard changes"
                 onClickCancel={handleClickCancel}
                 onClickConfirm={handleClickConfirm}
                 open={confirm}
-                title='Discard changes?'
+                title="Discard changes?"
             />
         </Fragment>
-    )
-}
+    );
+};
 
-export default EditPromptModal
+export default EditPromptModal;

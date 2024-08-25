@@ -1,1 +1,1 @@
-export { default } from './Deferral'
+export { default } from './Deferral';

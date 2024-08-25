@@ -2,18 +2,18 @@ import request from '../common/request';
 
 const routes = {
     getAllTransactions: async (startDate?: string, endDate?: string) => {
-        const from = startDate ? `?from=${startDate}` : ''
-        const to = endDate ? `&to=${endDate}` : ''
-        return await request.get(`/transaction${from}${to}`)
+        const from = startDate ? `?from=${startDate}` : '';
+        const to = endDate ? `&to=${endDate}` : '';
+        return request.get(`/transaction${from}${to}`);
     },
     createManyTransactions: async (transactions: any) => {
-        return await request.post(`/transaction/create-many`, { transactions })
+        return request.post(`/transaction/create-many`, { transactions });
     },
     getAllCategories: async () => {
-        return await request.get(`/category`)
+        return request.get(`/category`);
     },
     getAllCategoriesWithMatchers: async () => {
-        return await request.get(`/category?includeMatchers=true`)
+        return request.get(`/category?includeMatchers=true`);
     },
     // createCategory: async (category: Partial<Category>) => {
     //     return await request.post(`/category`, category)
@@ -27,9 +27,9 @@ const routes = {
     // addSingleMatcher: async (matcher: Partial<Matcher>, categoryId: Category['id']) => {
     //     return await request.post(`/matcher/`, { ...matcher, categoryId })
     // },
-    deleteSingleMatcher: async (id: number|string) => {
-        return await request.delete(`/matcher/${id}`)
+    deleteSingleMatcher: async (id: number | string) => {
+        return request.delete(`/matcher/${id}`);
     },
-}
+};
 
-export default routes
+export default routes;

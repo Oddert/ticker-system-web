@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-interface iProps {}
+interface IProps {}
 
-const [FTName]: FC<iProps> = () => {
+const [FTName]: FC<IProps> = () => {
     return (
         <p>[FTName]</p>
     )

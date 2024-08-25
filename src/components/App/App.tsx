@@ -1,12 +1,10 @@
 // import { useEffect } from 'react';
-import { RouterProvider } from 'react-router-dom'
+import { RouterProvider } from 'react-router-dom';
 // import dayjs from 'dayjs';
 // import localizedFormat from 'dayjs/plugin/localizedFormat'
-import { CssBaseline } from '@mui/material'
+import { Box, CssBaseline } from '@mui/material';
 
-import { Box } from '@mui/material'
-
-import router from '../../constants/routerConstants'
+import router from '../../constants/routerConstants';
 
 // import { useAppDispatch } from '../../hooks/ReduxHookWrappers';
 
@@ -28,11 +26,11 @@ const App = () => {
     // }, [])
 
     return (
-        <Box className='App'>
+        <Box className="App">
             <CssBaseline enableColorScheme />
             <RouterProvider router={router} />
         </Box>
     );
-}
+};
 
 export default App;

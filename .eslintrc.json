@@ -13,7 +13,10 @@
         // "airbnb",
         "airbnb-typescript",
         // "airbnb/hooks",
-        "plugin:prettier/recommended"
+        "plugin:prettier/recommended",
+        "plugin:import/recommended",
+        "plugin:import/typescript"
+        // "plugin:import/named"
     ],
     "parserOptions": {
         "project": "./tsconfig.json", // path of tsconfig file
@@ -28,4 +31,9 @@
     "rules": {
         "prettier/prettier": "error"
     }
+    // "settings": {
+    //     "import/resolver": {
+    //         "typescript": {}
+    //     }
+    // }
 }

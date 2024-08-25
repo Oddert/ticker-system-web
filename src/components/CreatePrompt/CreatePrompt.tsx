@@ -2,39 +2,34 @@ import { FC, Fragment, useState } from 'react';
 import { Dayjs } from 'dayjs';
 
 import { Button } from '@mui/material';
-import {
-    Add as CreateIcon,
-} from '@mui/icons-material';
+import { Add as CreateIcon } from '@mui/icons-material';
 
 import EditPromptModal from '../EditPromptModal';
 
-interface iProps {
-    buttonText?: string
+interface IProps {
+    buttonText?: string;
 }
 
-export interface iState {
-    title: string,
-    date: Dayjs,
-    deferQuantity: string,
-    deferPeriod: 'days' | 'weeks' | 'months',
+export interface IState {
+    title: string;
+    date: Dayjs;
+    deferQuantity: string;
+    deferPeriod: 'days' | 'weeks' | 'months';
 }
 
-const CreatePrompt: FC<iProps> = ({
-    buttonText='Create prompt',
-}) => {
-    const [open, setOpen] = useState(false)
+const CreatePrompt: FC<IProps> = ({ buttonText = 'Create prompt' }) => {
+    const [open, setOpen] = useState(false);
 
     const handleSave = () => {
-        console.log('SAVE!')
-    }
+        console.log('SAVE!');
+    };
 
-    const handleClickOpen = () => setOpen(true)
+    const handleClickOpen = () => setOpen(true);
 
     return (
         <Fragment>
             <Button onClick={handleClickOpen}>
-                <CreateIcon />{' '}
-                {buttonText}
+                <CreateIcon /> {buttonText}
             </Button>
             <EditPromptModal
                 onClose={() => setOpen(false)}
@@ -42,7 +37,7 @@ const CreatePrompt: FC<iProps> = ({
                 open={open}
             />
         </Fragment>
-    )
-}
+    );
+};
 
-export default CreatePrompt
+export default CreatePrompt;
