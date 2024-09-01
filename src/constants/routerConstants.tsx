@@ -8,12 +8,14 @@ import Layout from '../components/Layout';
 
 import AllPrompts from '../pages/AllPrompts';
 import Home from '../pages/Home';
+import Login from '../pages/Login';
 import LookAhead from '../pages/LookAhead';
 
 export const ROUTES = Object.freeze({
-    HOME: '/',
-    LOOK_AHEAD: '/look-ahead',
     ALL_PROMPTS: '/all-prompts',
+    HOME: '/',
+    LOGIN: '/login',
+    LOOK_AHEAD: '/look-ahead',
 });
 
 // export const GO = Object.freeze({
@@ -45,6 +47,10 @@ const router = createBrowserRouter([
             </Layout>
         ),
     },
+    {
+        path: ROUTES.LOGIN,
+        element: <Login />,
+    },
 ]);
 
 export const navigation = [
@@ -62,6 +68,11 @@ export const navigation = [
         label: 'All Data',
         Icon: AllDataIcon,
         location: ROUTES.ALL_PROMPTS,
+    },
+    {
+        label: 'Temp login',
+        Icon: AllDataIcon,
+        location: ROUTES.LOGIN,
     },
 ];
 
