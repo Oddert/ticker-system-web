@@ -26,7 +26,7 @@ const router = createBrowserRouter([
     {
         path: ROUTES.HOME,
         element: (
-            <Layout>
+            <Layout requiresAuth={true}>
                 <Home />
             </Layout>
         ),
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
     {
         path: ROUTES.LOOK_AHEAD,
         element: (
-            <Layout>
+            <Layout requiresAuth={true}>
                 <LookAhead />
             </Layout>
         ),
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
     {
         path: ROUTES.ALL_PROMPTS,
         element: (
-            <Layout>
+            <Layout requiresAuth={true}>
                 <AllPrompts />
             </Layout>
         ),

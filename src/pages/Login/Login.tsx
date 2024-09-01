@@ -1,6 +1,13 @@
 import { FC, useState } from 'react';
+import { Navigate } from 'react-router';
 
 import { Box, Container, Paper } from '@mui/material';
+
+import { ROUTES } from '../../constants/routerConstants';
+
+import { useAppSelector } from '../../hooks/ReduxHookWrappers';
+
+import { getIsAuthenticated } from '../../redux/slices/authentication/authentication.selector';
 
 import ExistingUser from './components/ExistingUser';
 import Header from './components/Header';
@@ -9,6 +16,12 @@ import SwitchMode from './components/SwitchMode';
 
 const Login: FC = () => {
     const [isExistingUser, setIsExistingUser] = useState(true);
+
+    const isAuth = useAppSelector(getIsAuthenticated);
+
+    if (isAuth) {
+        return <Navigate to={ROUTES.HOME} />;
+    }
 
     return (
         <Container>
