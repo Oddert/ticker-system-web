@@ -1,7 +1,7 @@
 import { ChangeEvent, FC, Fragment, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router';
 
-import { Button, Divider, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 
 import { ROUTES } from '../../../../constants/routerConstants';
 
@@ -11,19 +11,12 @@ import { TextField } from '../../Login.styles';
 
 import SubmitButton from '../SubmitButton';
 
-export interface IProps {
-    /**
-     * @param isExistingUser True if the user is on the login page, false for sign up.
-     */
-    setIsExistingUser: (isExistingUser: boolean) => void;
-}
-
 /**
  * The "Login" page allowing a user to sign in.
  *
  * Links to the "Sign Up" page.
  */
-const ExistingUser: FC<IProps> = ({ setIsExistingUser }) => {
+const ExistingUser: FC = () => {
     const navigate = useNavigate();
 
     const [username, setUsername] = useState('');
@@ -95,13 +88,6 @@ const ExistingUser: FC<IProps> = ({ setIsExistingUser }) => {
                 success={success}
                 text='Login'
             />
-            <Divider sx={{ height: '2px', width: '100%', mt: 3 }} />
-            <Typography sx={{ mt: 3 }}>
-                Need an account?{' '}
-                <Button onClick={() => setIsExistingUser(false)} variant='text'>
-                    Sign Up
-                </Button>
-            </Typography>
         </Fragment>
     );
 };

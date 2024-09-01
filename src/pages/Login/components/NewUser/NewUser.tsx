@@ -1,13 +1,7 @@
 import { ChangeEvent, FC, Fragment, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router';
 
-import {
-    Button,
-    debounce,
-    Divider,
-    FormControl,
-    Typography,
-} from '@mui/material';
+import { debounce, FormControl, Typography } from '@mui/material';
 
 import { ROUTES } from '../../../../constants/routerConstants';
 
@@ -20,15 +14,16 @@ import {
 
 import { TextField } from '../../Login.styles';
 
-import { IProps, IValidationMap, IValidationSet } from './NewUser.types';
 import SubmitButton from '../SubmitButton';
+
+import { IValidationMap, IValidationSet } from './NewUser.types';
 
 /**
  * The "Sign Up" page allowing a user to make a new account.
  *
  * Links to the "Login" page.
  */
-const NewUser: FC<IProps> = ({ setIsExistingUser }) => {
+const NewUser: FC = () => {
     const navigate = useNavigate();
 
     const [password, setPassword] = useState('');
@@ -244,16 +239,6 @@ const NewUser: FC<IProps> = ({ setIsExistingUser }) => {
                     success={success}
                     text='Sign Up'
                 />
-                <Divider sx={{ height: '2px', width: '100%', mt: 3 }} />
-                <Typography sx={{ mt: 3 }}>
-                    Already a user?{' '}
-                    <Button
-                        onClick={() => setIsExistingUser(true)}
-                        variant='text'
-                    >
-                        Login
-                    </Button>
-                </Typography>
             </FormControl>
         </Fragment>
     );

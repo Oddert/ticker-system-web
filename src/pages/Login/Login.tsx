@@ -5,6 +5,7 @@ import { Box, Container, Paper } from '@mui/material';
 import ExistingUser from './components/ExistingUser';
 import Header from './components/Header';
 import NewUser from './components/NewUser';
+import SwitchMode from './components/SwitchMode';
 
 const Login: FC = () => {
     const [isExistingUser, setIsExistingUser] = useState(true);
@@ -30,11 +31,11 @@ const Login: FC = () => {
                         mt: 8,
                     }}
                 >
-                    {isExistingUser ? (
-                        <ExistingUser setIsExistingUser={setIsExistingUser} />
-                    ) : (
-                        <NewUser setIsExistingUser={setIsExistingUser} />
-                    )}
+                    {isExistingUser ? <ExistingUser /> : <NewUser />}
+                    <SwitchMode
+                        isExisting={isExistingUser}
+                        setIsExistingUser={setIsExistingUser}
+                    />
                 </Paper>
             </Box>
         </Container>
