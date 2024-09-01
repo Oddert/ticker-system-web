@@ -78,6 +78,7 @@ const ExistingUser: FC = () => {
             <TextField
                 label='Password'
                 onChange={handleChangePassword}
+                type='password'
                 value={password}
                 variant='outlined'
             />
