@@ -36,6 +36,18 @@ const routes = {
             return true;
         }
     },
+    loginUser: async (username: string, password: string) => {
+        try {
+            const response: IResponse<{ user: IUser }> = await request.post(
+                '/login',
+                { username, password },
+            );
+            return response?.user;
+        } catch (error) {
+            console.error(error);
+            return null;
+        }
+    },
 };
 
 export default routes;
