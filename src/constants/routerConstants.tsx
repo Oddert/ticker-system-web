@@ -69,11 +69,6 @@ export const navigation = [
         Icon: AllDataIcon,
         location: ROUTES.ALL_PROMPTS,
     },
-    {
-        label: 'Temp login',
-        Icon: AllDataIcon,
-        location: ROUTES.LOGIN,
-    },
 ];
 
 export default router;
