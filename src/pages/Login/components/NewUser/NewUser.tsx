@@ -3,13 +3,11 @@ import { useNavigate } from 'react-router';
 
 import {
     Button,
-    CircularProgress,
     debounce,
     Divider,
     FormControl,
     Typography,
 } from '@mui/material';
-import { CheckCircleOutline as SuccessIcon } from '@mui/icons-material';
 
 import { ROUTES } from '../../../../constants/routerConstants';
 
@@ -23,6 +21,7 @@ import {
 import { TextField } from '../../Login.styles';
 
 import { IProps, IValidationMap, IValidationSet } from './NewUser.types';
+import SubmitButton from '../SubmitButton';
 
 /**
  * The "Sign Up" page allowing a user to make a new account.
@@ -238,24 +237,13 @@ const NewUser: FC<IProps> = ({ setIsExistingUser }) => {
                 {passwordError && (
                     <Typography color='error'>{passwordError}</Typography>
                 )}
-                <Button
-                    color='primary'
-                    disabled={submitDisabled}
-                    onClick={handleSubmit}
-                    sx={{
-                        mt: '16px',
-                        minWidth: '350px',
-                    }}
-                    variant='contained'
-                >
-                    Sign Up
-                    {loading ? (
-                        <CircularProgress size={20} sx={{ ml: '8px' }} />
-                    ) : null}
-                    {success ? (
-                        <SuccessIcon color='success' sx={{ ml: '8px' }} />
-                    ) : null}
-                </Button>
+                <SubmitButton
+                    loading={loading}
+                    onSubmit={handleSubmit}
+                    submitDisabled={submitDisabled}
+                    success={success}
+                    text='Sign Up'
+                />
                 <Divider sx={{ height: '2px', width: '100%', mt: 3 }} />
                 <Typography sx={{ mt: 3 }}>
                     Already a user?{' '}
