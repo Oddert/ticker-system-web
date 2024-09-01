@@ -1,34 +1,40 @@
 import request from '../common/request';
+import { IUser } from '../types/user';
+
+interface IStandardResponse {
+    status: number;
+    message: string;
+    error: string | null;
+}
+
+type IResponse<Payload> = IStandardResponse & Payload;
 
 const routes = {
-    getAllTransactions: async (startDate?: string, endDate?: string) => {
-        const from = startDate ? `?from=${startDate}` : '';
-        const to = endDate ? `&to=${endDate}` : '';
-        return request.get(`/transaction${from}${to}`);
+    checkUserExists: async (username: string) => {
+        try {
+            const response: IResponse<{ exists: boolean }> = await request.get(
+                `/user-exists/${username}`,
+            );
+            return response?.exists;
+        } catch (error) {
+            console.error(error);
+            return true;
+        }
     },
-    createManyTransactions: async (transactions: any) => {
-        return request.post(`/transaction/create-many`, { transactions });
-    },
-    getAllCategories: async () => {
-        return request.get(`/category`);
-    },
-    getAllCategoriesWithMatchers: async () => {
-        return request.get(`/category?includeMatchers=true`);
-    },
-    // createCategory: async (category: Partial<Category>) => {
-    //     return await request.post(`/category`, category)
-    // },
-    // updateCategory: async (category: Partial<Category>) => {
-    //     return await request.put(`/category/${category.id}`, category)
-    // },
-    // deleteSingleCategory: async (categoryId: Category['id']) => {
-    //     return await request.delete(`/category/${categoryId}`)
-    // },
-    // addSingleMatcher: async (matcher: Partial<Matcher>, categoryId: Category['id']) => {
-    //     return await request.post(`/matcher/`, { ...matcher, categoryId })
-    // },
-    deleteSingleMatcher: async (id: number | string) => {
-        return request.delete(`/matcher/${id}`);
+    createNewUser: async (username: string, password: string) => {
+        try {
+            const response: IResponse<{ user: IUser }> = await request.post(
+                '/signup',
+                {
+                    username,
+                    password,
+                },
+            );
+            return response?.user;
+        } catch (error) {
+            console.error(error);
+            return true;
+        }
     },
 };
 
